@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, code, em, img, fieldset, legend, form, label, footer, header, nav, section {
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, fieldset, legend, form, label, footer, header, nav, section {
   margin: 0;
   padding: 0;
   border: 0;
