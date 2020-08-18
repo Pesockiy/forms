@@ -1,0 +1,338 @@
+//mixins
+
+//font-face
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+	@font-face
+		font-family: $font-family
+		font-weight: $weight
+		font-style: $style
+		src: url('#{$file-path}.eot')
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
+
+
+
+@mixin linearGradient($firstBg,$secondBg,$deg)
+	background: linear-gradient($deg,$firstBg,$secondBg)
+
+
+//varibles
+//colours
+$formHeaderBg: #34b7ce
+$semiGreyColor: #dcdcdc
+
+$imgsPath: './../img'
+
+//fonts
+
+@include font-face("Source", "./../fonts/Source Sans Pro Regular")
+@include font-face("SourceBold", "./../fonts/Source Sans Pro SemiBold")
+
+
+
+//sass reset
+*, *:before, *:after
+	box-sizing: border-box
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, code, em, img, fieldset, legend, form, label, footer, header, nav, section
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	text-size-adjust: none
+
+
+input,
+button
+	-webkit-appearance: none
+	border-radius: 0
+	border: none
+	outline: none
+
+body
+	font: 14px/1 "Source"
+
+
+
+.section__forms
+	overflow-x: hidden
+	padding: 20px 0
+	background: url('#{$imgsPath}/Group 2-min.png') center / cover no-repeat
+	min-height: 100vh
+
+
+.form
+	&s-wrap
+		max-width: 868px
+		margin: auto
+		padding: 20px
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		flex-direction: column
+		justify-content: center
+	&s__body
+		width: 100%
+		border-radius: 10px
+	&s__text
+		font-size: 28px
+		margin-bottom: 60px
+		margin-right: 100px
+		color: #b0b0b0
+		align-self: flex-end
+	&s__header
+		padding: 0 30px
+		border-radius: 10px 10px 0 0
+		background-color: $formHeaderBg
+	&s__body
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		padding: 22px 26px 32px 26px
+		justify-content: space-between
+		flex-direction: row
+		border: 1px solid #cecece
+		border-top: 0
+		border-radius: 0 0 10px 10px
+		background-color: #f5f5f5
+	&s__ttl
+		padding: 1.23em 1.11em 1.32em 3em
+		margin: 0
+		font-size: 34px
+		letter-spacing: .01em
+		color: #fff
+		background: url('#{$imgsPath}/Compose - alt.png') no-repeat 0 center / 2.1em
+	&__login,
+	&__register
+		position: relative
+		min-width: 50%
+	&__register
+		padding-left: 28px
+		margin-top: 14px
+		&::before
+			content: ''
+			position: absolute
+			width: 1px
+			left: 0
+			top: 44px
+			bottom: 28px
+			background: linear-gradient(to right,transparent 0%,#e5e5e5 50%,transparent 100%)
+	&__login
+		padding-top: 22px
+		padding-right: 27px
+		&::after,
+		&::before
+			content: ''
+			position: relative
+			display: block
+		&::after
+			position: absolute
+			z-index: 1
+			top: 39px
+			position: absolute
+			width: 100%
+			height: 1px
+			background: linear-gradient(to right,transparent 0%,#e5e5e5 50%,transparent 100%)
+		&::before
+			content: '/'
+			z-index: 2
+			width: 35px
+			height: 35px
+			padding: 8px
+			right: calc(-50% + 20px)
+			top: 0
+			color: #d4d4d4
+			margin-bottom: 29px
+			background-color: #eaeaea
+			border-radius: 50%
+			border: 1px solid $semiGreyColor
+			text-align: center
+			font-size: 17px
+			font-family: 'SourceBold'
+		.form__control
+			font-size: 22px
+	&__button
+		position: relative
+		padding: 0.4em 0.5em 0.5em 0.5em
+		min-width: 6.82em
+		font-size: 22px
+		font-family: 'SourceBold'
+		color: #fff
+		cursor: pointer
+		border-radius: .4em
+		@include linearGradient(#004c6c 0%,#3d9ec7 50%,140deg)
+		&::after
+			content: ''
+			position: absolute
+			right: 0
+			top: 0
+			left: 0
+			opacity: 0
+			visibility: hidden
+			bottom: 0
+			background-image: linear-gradient(140deg,transparent,rgba(255,255,255,.45),transparent)
+			transition: all .3s
+		&:hover::after
+			visibility: visible
+			opacity: 1
+		&--orange
+			@include linearGradient(#ab7800 0%,#ffb400 50%,140deg)
+	.form__login-inner
+		display: flex
+		flex-flow: row wrap
+		justify-content: flex-end
+		align-items: baseline
+	&__col-ttl
+		position: relative
+		top: -10px
+		margin-bottom: 22px
+		font-size: 20px
+		font-family: 'SourceBold'
+		color: #838383
+	&__group
+		margin-bottom: 22px
+		&:last-of-type
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			flex-direction: row-reverse
+			margin-bottom: 0
+			margin-left: 15px
+	&__input
+		margin-bottom: 32px
+	&__label
+		display: block
+		margin-bottom: 17px
+		margin-left: 2px
+		font-size: 15px
+		color: #9f9f9f
+	&__control
+		width: 100%
+		padding: 0.85em 1.4em 0.85em 2.4em
+		display: block
+		font-size: 18px
+		border-radius: .6em
+		border: 1px solid $semiGreyColor
+		&::placeholder
+			color: #f2f2f2
+		&-warning,
+		&-success
+			position: relative
+		&-warning::after,
+		&-success::after
+			content: ''
+			position: absolute
+			width: 25px
+			height: 25px
+			top: 50%
+			right: 10px
+			transform: translateY(-50%)
+			background: url('#{$imgsPath}/form.html.png') no-repeat 0 -10%
+		&-success::after
+			background-position: 0 110%
+
+	&__check
+		position: relative
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-right: auto
+		margin-bottom: 20px
+
+.form__checkbox
+	width: 18px
+	height: 18px
+	border-radius: 5px
+	background-color: #cbcbcb
+	cursor: pointer
+	&:hover + .form__tooltip-text
+		visibility: visible
+	&:checked
+		background: #cbcbcb url('#{$imgsPath}/form.html.png') no-repeat 40% 116% / 75%
+.form__tooltip
+	position: relative
+	left: 8px
+	color: #cbcbcb
+	cursor: pointer
+.form__tooltip-text
+		position: absolute
+		z-index: 1
+		visibility: hidden
+		width: 255px
+		color: #cbcbcb
+		background-color: #fff
+		padding: 14px
+		top: 50px
+		left: -120px
+		border-radius: 6px
+		box-shadow: 0 2px 4px
+		line-height: 1.2
+
+@media (max-width: 768px)
+	.form
+		&s__text
+			margin-bottom: 40px
+			margin-right: 40px
+		&s__ttl
+			font-size: 28px
+		&__login
+			padding-right: 20px
+		&__register
+			padding-left: 20px
+
+
+
+@media (max-width: 576px)
+	.form
+		&s__text
+			margin-bottom: 20px
+			margin-right: 10px
+			font-size: 20px
+		&s__body
+			flex-direction: column
+			padding: 20px
+		&s__header
+			padding: 0 15px
+		&s__ttl
+			padding: 1.5em .75em
+			font-size: 20px
+			text-align: center
+			background: none
+		&__login
+			margin-bottom: 35px
+			padding-right: 0
+		&__register
+			padding-left: 0
+		&__register::before
+			top: 0
+			width: 100%
+			height: 1px
+			margin-bottom: 20px
+		&__label
+			margin-bottom: 15px
+		&__col-ttl
+			position: relative
+			top: 15px
+			margin-bottom: 25px
+			font-size: 22px
+			text-align: center
+		.form__control
+			font-size: 16px
+
+		&__tooltip-text
+			left: 0
+		&__button
+			font-size: 18px

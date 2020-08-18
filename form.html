@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<title>Form</title>
+	<link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+	<section class="section section__forms">
+		<div class="forms-wrap">
+			<h4 class="forms__text">Login To Your Account / Register New</h4>
+			<div class="forms__header">
+				<h3 class="forms__ttl">
+					Login To Your Account / Register New
+				</h3>
+			</div>
+			<div class="forms__body">
+				<form action="" method="post" class="form form__login" id="form__login">
+					<div class="form__input">
+						<div class="form__control-wrap">
+							<input type="text" autocomplete="off" id="name" name="name" placeholder="User Name" class="form__control">
+						</div>
+					</div>
+					<div class="form__input">
+						<div class="form__control-wrap">
+							<input type="password" id="password" name="password" placeholder="Password" autocomplete="off" class="form__control">
+						</div>
+					</div>
+					<div class="form__login-inner">
+						<div class="form__check">
+							<input type="checkbox" class="form__checkbox" id="checkbox" name="checkbox">
+							<span class="form__tooltip-text">You no longer need to enter
+								a password every time you use the site</span>
+							<label class="form__tooltip" for="checkbox">Remember My password </label>
+						</div>
+						<div class="form__group">
+							<button class="form__button form__button-login" >Login</button>
+						</div>
+					</div>
+				</form>
+				<form action="" method="post" class="form form__register" id="form__register">
+					<p class="form__col-ttl">Register</p>
+					<div class="form__group">
+						<label for="enterEmail" class="form__label">Email</label>
+						<div class="form__control-wrap">
+							<input type="email" autocomplete="off" name="email" id="enterEmail" class="form__control">
+						</div>
+					</div>
+					<div class="form__group">
+						<label for="enterUsername" class="form__label">User Name</label>
+						<div class="form__control-wrap">
+							<input type="text" autocomplete="off" name="name" id="enterUsername" class="form__control">
+						</div>
+					</div>
+					<div class="form__group">
+						<label for="enterPassword" class="form__label">Password</label>
+						<div class="form__control-wrap">
+							<input type="password" autocomplete="off" name="password" id="enterPassword" class="form__control">
+						</div>
+					</div>
+					<div class="form__group">
+						<button class="form__button form__button--orange form__button-register" >Register</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
