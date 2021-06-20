@@ -98,9 +98,9 @@ function formationRequest(evt) {
 	if(!validate(evt.target)) return;
 	console.log(getQueryString(data));
 
-//	let xhr = new XMLHttpRequest();
-//	xhr.open('POST', 'handler.php');
-//	xhr.send(data);
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST', 'handler.php');
+	xhr.send(data);
 
 }
 
